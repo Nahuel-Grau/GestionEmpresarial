@@ -31,5 +31,12 @@ private PDO $db;
             ':id' =>$id,
         ]);
         return $sentencia;
+    } 
+    public function buscarPorId($id){
+        $sentencia = $this->db->prepare("SELECT * FROM `productos` WHERE `id` = :id");
+        $sentencia->execute([
+            'id' =>$id,
+        ]);
+        return $sentencia->fetch(PDO::FETCH_OBJ);
     }
 }

@@ -77,7 +77,7 @@ include 'body.php';
                             <td class="text-center">
 
                                 <a
-                                    href="/productos/modificar"
+                                    href="productos/modificar?id=<?=$product->id?>"
                                     class="btn btn-sm btn-outline-primary me-2"
                                     value="<?= $product->id ?>"
                                 >

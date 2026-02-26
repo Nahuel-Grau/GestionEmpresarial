@@ -29,6 +29,10 @@ Class GastoController{
 
     //revisar cuando empiece con las sesiones
     public function store(){
+    if(!isset($_SESSION['usuario'])){
+            $error = "Para poder guardar un gasto debes estar logueado";  
+             require __DIR__.'/../Views/login.php';
+        }else
     
       $this->modelo->crear(
             1,
@@ -44,14 +48,26 @@ Class GastoController{
 
     //revisar cuando tenga las configuraciones de usuarios
     public function borrar(){
+    if(!isset($_SESSION['usuario'])){
+            $error = "para poder borrar debes estar logueado";  
+             require __DIR__.'/../Views/login.php';
+        }else
         $this->modelo->borrar($_POST['id']);
         header("location: /gastos");
         exit;
+        return;
     }
 
     //revisar cuando tenga las configuraciones de usuarios
     public function modificar(){
+        if(!isset($_SESSION['usuario'])){
+            $error = "para poder modificar debes estar logueado";  
+             require __DIR__.'/../Views/login.php';
+             return;
+        }
+
        $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+       
        if(!$id){
         die("ID inválido");
        }
@@ -63,6 +79,10 @@ Class GastoController{
     
     //revisar cuando tenga las configuraciones de usuarios
     public function actualizar(){
+       if(!isset($_SESSION['usuario'])){
+            $error = "Para poder actualizar debes estar logueado";  
+             require __DIR__.'/../Views/login.php';
+        }else
        $id = $_POST['id'];
        $monto = $_POST['monto'];
        $descripcion =$_POST['descripcion'];
