@@ -64,16 +64,7 @@ class ProductController{
        require __DIR__. '/../Views/modificarProducto.php';
     }
 
-    public function dashboard (){
-         if(!isset($_SESSION['usuario'])){
-            $error = "Para poder ingresar al dashboard debes estar logueado";  
-             require __DIR__.'/../Views/login.php';
-        }else
-            
-        $totalProduct = $this->modelo->todos($_SESSION['usuario']['id']);
-        $totalProduct = count(get_object_vars($total));
-        require __DIR__ . '/../Views/dashboard.php';
-    }
+  
         
     
 }

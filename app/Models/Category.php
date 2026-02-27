@@ -1,0 +1,54 @@
+<?php
+
+class Category{
+    private PDO $db;
+
+    public function __construct(PDO $db){
+        $this->db = $db;
+    }
+    
+    public function crear($usuario, $tipo, $nombre){
+        $sentencia = $this->db->prepare(
+            "INSERT INTO categorias (usuario_id,tipo,nombre)
+             VALUES (?, ?, ?,)"
+        );
+
+        return;
+    }
+
+    //en teoria lo que esta arriba esta terminado y lo que está abajo tengo que modificar
+
+
+    public function borrar($id){
+        
+        $sentencia = $this->db->prepare("DELETE FROM categorias WHERE `categorias`.`id` = :id");
+        $sentencia->execute([
+            ':id' =>$id,
+        ]);
+        return ;
+    }
+
+    public function buscarPorId($id){
+        $sentencia = $this->db->prepare("SELECT * FROM `categorias` WHERE `id` = :id");
+        $sentencia->execute([
+            'id' =>$id,
+        ]);
+        return $sentencia->fetch(PDO::FETCH_OBJ);
+    }
+
+    public function modificar($id,$monto,$descripcion){
+        $sentencia = $this->db->prepare("UPDATE gastos 
+            SET monto = :monto, descripcion = :descripcion 
+            WHERE id = :id");
+            
+            $sentencia->execute([
+            ':id'=>$id,
+            ':monto'=>$monto,
+            ':descripcion'=>$descripcion
+
+        ]);
+        return $sentencia;      
+    }
+
+    
+    }

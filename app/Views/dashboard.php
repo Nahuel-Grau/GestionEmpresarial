@@ -47,7 +47,7 @@ include 'body.php';
     <div class="card">
       <img src="..." class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">productos</h5>
+        <h5 class="card-title">Total de productos</h5>
         <p class="card-text"><?= $totalProduct;?></p>
       </div>
     </div>

@@ -93,21 +93,6 @@ Class GastoController{
         exit;
     }
 
-    public function dashboard (){
-         if(!isset($_SESSION['usuario'])){
-            $error = "Para poder ingresar al dashboard debes estar logueado";  
-             require __DIR__.'/../Views/login.php';
-        }else
-            
-        $total = $this->modelo->sumatoria($_SESSION['usuario']['id']);
-
-        require __DIR__ . '/../Views/dashboard.php';
-    }
-
-
-
-
-
 
 
 }

@@ -4,7 +4,7 @@ $routes = [];
 // GET
 $routes['GET']['/login'] = 'AuthController@showLogin';
 $routes['GET']['/register'] = 'AuthController@showRegister';
-$routes['GET']['/dashboard'] = 'GastoController@dashboard';
+$routes['GET']['/dashboard'] = 'DashboardController@dashboard';
 $routes['GET']['/'] ='ViewsController@inicio';
 $routes['GET']['/productos']= 'ProductController@index';
 $routes['GET']['/gastos'] ='GastoController@index';
