@@ -36,15 +36,15 @@ class Category{
         return $sentencia->fetch(PDO::FETCH_OBJ);
     }
 
-    public function modificar($id,$monto,$descripcion){
-        $sentencia = $this->db->prepare("UPDATE gastos 
-            SET monto = :monto, descripcion = :descripcion 
+    public function modificar($id,$tipo,$nombre){
+        $sentencia = $this->db->prepare("UPDATE categorias 
+            SET tipo = :tipo, nombre = :nombre 
             WHERE id = :id");
             
             $sentencia->execute([
             ':id'=>$id,
-            ':monto'=>$monto,
-            ':descripcion'=>$descripcion
+            ':tipo'=>$tipo,
+            ':nombre'=>$nombre
 
         ]);
         return $sentencia;      
