@@ -11,6 +11,7 @@ $routes['GET']['/gastos'] ='GastoController@index';
 $routes['GET']['/gastos/modificar'] = 'GastoController@modificar';
 $routes['GET']['/logout']= 'AuthController@logout';
 $routes['GET']['/productos/modificar']='ProductController@modificar';
+$routes['GET']['/categorias']="CategoryController@index";
 
 // POST
 $routes['POST']['/login'] = 'AuthController@login';

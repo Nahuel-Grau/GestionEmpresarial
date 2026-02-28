@@ -8,10 +8,11 @@
 
         <!-- Links -->
         <div class="nav navbar-nav">
-            <a class="nav-link active" href="/">Inicio</a>
-            <a class="nav-link active" href="/dashboard">Dashboard</a>
-            <a class="nav-link active" href="/productos">Productos</a>
-
+            <a class="nav-link " href="/">Inicio</a>
+            <a class="nav-link " href="/dashboard">Dashboard</a>
+            <a class="nav-link " href="/productos">Productos</a>
+            <a class="nav-link" href="/categorias">Categorías</a>
+   
         </div>
 
         <!-- Login a la derecha -->

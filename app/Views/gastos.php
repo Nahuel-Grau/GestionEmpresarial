@@ -18,6 +18,19 @@ include_once __DIR__.'/../Controllers/GastoController.php';
                         <input required type="text"class="form-control"name="monto"placeholder="Monto"/>            
                     </div>
                 </fieldset>
+                <fieldset class="mb-3 row">
+                    <legend class="col-form-legend col-4">Categoría</legend>
+                    <div class="col-8">
+                        <select name="categoria_id" class="form-select" required>
+                            <option value="">Seleccionar categoría</option>
+                            <?php foreach ($categorias as $categoria): ?>
+                                <option value="<?= $categoria->id ?>">
+                                    <?= htmlspecialchars($categoria->nombre) ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </fieldset>
                 <div class="mb-3 row">
                     <div class="offset-sm-4 col-sm-8">
                         <button type="submit" class="btn btn-primary">
@@ -41,6 +54,7 @@ include_once __DIR__.'/../Controllers/GastoController.php';
                 Gastos
                 <th scope="col">Fecha</th>
                 <th scope="col">Descripcion</th>
+                <th scope="col">Categoría</th>
                 <th scope="col">Gasto</th>
                 <th scope="col">Eliminar</th>
                 <th scope="col">Modificar</th>
@@ -51,6 +65,7 @@ include_once __DIR__.'/../Controllers/GastoController.php';
         <tr>
             <td><?= htmlspecialchars($gasto->fecha); ?></td>
             <td><?= htmlspecialchars($gasto->descripcion, ENT_QUOTES); ?></td>
+            <td><?= htmlspecialchars($gasto->categoria_nombre ?? 'Sin categoría'); ?></td>
             <td>$<?= number_format($gasto->monto, 2); ?></td>
             <form action="/gastos/borrar" method="post">
                 <td><button type="submit" class="btn btn-danger" name="id" value="<?= $gasto->id ?>">Eliminar</button>

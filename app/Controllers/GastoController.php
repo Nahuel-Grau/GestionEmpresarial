@@ -15,19 +15,16 @@ Class GastoController{
     }
 
     public function index(){
+        if(!isset($_SESSION['usuario'])){
+            $error = "para poder ingresar debes estar logueado";  
+             require __DIR__.'/../Views/login.php';
+        }else
         $gastos = $this->modelo->todos($_SESSION['usuario']['id']);
         $total = $this->modelo->sumatoria($_SESSION['usuario']['id']);
         require_once __DIR__.'/../Views/gastos.php';    
         return $gastos;
     }
-    
-    // public function sumatoria(){
-       
-    //     $total = $this->modelo->sumatoria($_SESSION['usuario']['id']);
-    //     return $total;
-    // }
 
-    //revisar cuando empiece con las sesiones
     public function store(){
     if(!isset($_SESSION['usuario'])){
             $error = "Para poder guardar un gasto debes estar logueado";  
