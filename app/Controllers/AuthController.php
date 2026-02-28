@@ -46,7 +46,7 @@ public function store(){
           $email,
           $hash
         );
-        if($resultado == false){
+        if($usuario == false){
           $error = "El email ya está en uso";  
             require __DIR__.'/../Views/register.php';
             return;
